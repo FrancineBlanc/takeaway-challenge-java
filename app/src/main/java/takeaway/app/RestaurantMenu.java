@@ -1,0 +1,45 @@
+package takeaway.app;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+public class RestaurantMenu {
+    private Map<String, Double> menuItems = new HashMap<String, Double>();
+
+    public RestaurantMenu() {
+        menuItems.put("curried goat", 7.50);
+        menuItems.put("fried chicken", 6.50);
+        menuItems.put("fried snapper", 7.00);
+        menuItems.put("ackee with sweet peppers", 6.00);
+        menuItems.put("fried plantain", 2.00);
+        menuItems.put("mac and cheese", 4.00);
+        menuItems.put("rice and peas", 3.00);
+        menuItems.put("plain rice", 2.50);
+    }
+
+    public Map<String, Double> getMenuItems() {
+        return menuItems;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        Iterator<Map.Entry<String, Double>> iterator = this.menuItems.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, Double> entry = iterator.next();
+            builder.append(entry.getKey());
+            builder.append(": £");
+            builder.append(String.format("%.2f", entry.getValue()));
+            if (iterator.hasNext()) {
+                builder.append(";\n");
+            }
+        }
+        return builder.toString();
+    }
+
+    public static void main(String[] args) {
+        RestaurantMenu menu = new RestaurantMenu();
+        System.out.println(menu.toString());
+    }
+}
