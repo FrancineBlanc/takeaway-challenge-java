@@ -20,7 +20,7 @@ ____
 This program is the Java implementation of the takeaway challenge (which I previously programmed using Ruby). The 
 program uses JUnit for testing and is a takeaway app designed to deal with the following user stories:
 
-- [ ] As a customer
+- [x] As a customer
 So that I can check if I want to order something
 I would like to see a list of dishes with prices
 
