@@ -29,33 +29,33 @@ public class FoodOrderTest {
 
         mockedMenu = mock(RestaurantMenu.class);
         when(mockedMenu.getMenuItems()).thenReturn(testItems);
-        when(mockedMenu.getSelection("test1")).thenReturn(testItems);
+        when(mockedMenu.getSelection("test1")).thenCallRealMethod();
+        when(mockedMenu.getSelection("test2")).thenCallRealMethod();
 
         foodOrder = new FoodOrder(mockedMenu);
         foodOrder.addToBasket("test1");
         foodOrder.addToBasket("test2");
-        foodOrder.addToBasket("test3");
     }
     @Test
     public void testMenuItemsAreAddedToABasket() {
-        assertEquals(foodOrder.getBasket().size(), 3);
+        assertEquals(foodOrder.getBasket().size(), 2);
         assertEquals(foodOrder.getBasket().get("test1"), Double.valueOf(2.00));
     }
 
     @Test
     public void testTheTotalIsReturned() {
-        assertEquals(foodOrder.getTotal(), Double.valueOf(6.00));
+        assertEquals(foodOrder.getTotal(), Double.valueOf(5.00));
     }
 
     @Test
     public void testTotalMatchesTotalInBasket() {
-        assertTrue(foodOrder.isCorrectTotal(6.00));
+        assertTrue(foodOrder.isCorrectTotal(5.00));
         assertFalse(foodOrder.isCorrectTotal(9.00));
     }
 
     @Test
     public void testOrderIsPrinted() {
-        assertEquals("Your total comes to £6.00", foodOrder.printTotal());
+        assertEquals("Your total comes to £5.00", foodOrder.printTotal());
     }
 
     @Test
