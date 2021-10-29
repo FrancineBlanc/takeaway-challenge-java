@@ -22,6 +22,18 @@ public class RestaurantMenu {
         return menuItems;
     }
 
+    public Map<String, Double> getSelection(String item) {
+        Map<String, Double> chosenItems = new HashMap<>();
+        for (Map.Entry<String, Double> pair : menuItems.entrySet()) {
+            if (pair.getKey().equals(item)) {
+                chosenItems.put(pair.getKey(), pair.getValue());
+            }
+        }
+        return chosenItems;
+    }
+
+
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -36,10 +48,5 @@ public class RestaurantMenu {
             }
         }
         return builder.toString();
-    }
-
-    public static void main(String[] args) {
-        RestaurantMenu menu = new RestaurantMenu();
-        System.out.println(menu.toString());
     }
 }

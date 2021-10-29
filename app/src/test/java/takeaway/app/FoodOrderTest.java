@@ -13,12 +13,14 @@ import static org.mockito.Mockito.when;
 public class FoodOrderTest {
     RestaurantMenu mockedMenu;
     FoodOrder foodOrder;
+
     @Before
     public void initialise() {
         Map<String, Double> testItems = new HashMap<>();
         testItems.put("test1", 2.00);
         testItems.put("test2", 3.00);
         testItems.put("test3", 1.00);
+
         mockedMenu = mock(RestaurantMenu.class);
         when(mockedMenu.getMenuItems()).thenReturn(testItems);
 
@@ -42,6 +44,5 @@ public class FoodOrderTest {
         assertTrue(foodOrder.isCorrectTotal(3.00));
         assertFalse(foodOrder.isCorrectTotal(7.00));
     }
-
 
 }
