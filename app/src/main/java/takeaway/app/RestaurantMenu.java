@@ -24,15 +24,13 @@ public class RestaurantMenu {
 
     public Map<String, Double> getSelection(String item) {
         Map<String, Double> chosenItems = new HashMap<>();
-        for (Map.Entry<String, Double> pair : menuItems.entrySet()) {
+        for (Map.Entry<String, Double> pair : getMenuItems().entrySet()) {
             if (pair.getKey().equals(item)) {
                 chosenItems.put(pair.getKey(), pair.getValue());
             }
         }
         return chosenItems;
     }
-
-
 
     @Override
     public String toString() {
@@ -49,5 +47,4 @@ public class RestaurantMenu {
         }
         return builder.toString();
     }
-
 }

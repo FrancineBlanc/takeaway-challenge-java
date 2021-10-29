@@ -12,7 +12,6 @@ public class FoodOrder {
     }
 
     public void addToBasket(String item) {
-        menu.getSelection(item);
         for(Map.Entry<String, Double> pair : menu.getSelection(item).entrySet()) {
             basket.put(pair.getKey(), pair.getValue());
         }
@@ -30,12 +29,19 @@ public class FoodOrder {
         return total;
     }
 
-    public void printTotal() {
-        System.out.printf("Your total comes to £%.2f", getTotal());
+    public String printTotal() {
+        return String.format("Your total comes to £%.2f", getTotal());
     }
 
     public boolean isCorrectTotal(Double price) {
         return price.equals(getTotal());
     }
 
+    public String placeOrder(TextClient client) {
+        if (!basket.isEmpty()) {
+            client.sendMessage();
+            return "Your order has been successfully placed!";
+        }
+        return "You cannot place an order with an empty basket";
+    }
 }
