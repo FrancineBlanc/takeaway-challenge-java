@@ -38,13 +38,13 @@ public class FoodOrderTest {
     }
     @Test
     public void testMenuItemsAreAddedToABasket() {
-        assertEquals(foodOrder.getBasket().size(), 2);
-        assertEquals(foodOrder.getBasket().get("test1"), Integer.valueOf(1));
+        assertEquals(2, foodOrder.getBasket().size());
+        assertEquals(Integer.valueOf(1), foodOrder.getBasket().get("test1"));
     }
 
     @Test
     public void testTheTotalIsReturned() {
-        assertEquals(foodOrder.getTotal(), Double.valueOf(5.00));
+        assertEquals(Double.valueOf(5.00), foodOrder.getTotal());
     }
 
     @Test
@@ -54,7 +54,12 @@ public class FoodOrderTest {
     }
 
     @Test
-    public void testOrderIsPrinted() {
+    public void testPrintsContentsOfBasket() {
+        assertEquals("item: test2, quantity: 1;\nitem: test1, quantity: 1", foodOrder.printBasket());
+    }
+
+    @Test
+    public void testTotalPriceIsPrinted() {
         assertEquals("Your total comes to £5.00", foodOrder.printTotal());
     }
 

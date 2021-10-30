@@ -19,7 +19,7 @@ public class MenuTest {
 
     @Test
     public void testHasListOfDishesWithPrices() {
-        assertEquals(menu.getMenuItems().size(), 8);
+        assertEquals(8, menu.getMenuItems().size());
     }
 
     @Test
@@ -31,13 +31,13 @@ public class MenuTest {
 
     @Test
     public void testReturnsMenuAsString() {
-        assertEquals(menu.toString(), "plain rice: £2.50;\n" +
+        assertEquals("plain rice: £2.50;\n" +
                 "fried plantain: £2.00;\n" +
                 "ackee with sweet peppers: £6.00;\n" +
                 "curried goat: £7.50;\n" +
                 "fried snapper: £7.00;\n" +
                 "fried chicken: £6.50;\n" +
                 "rice and peas: £3.00;\n" +
-                "mac and cheese: £4.00");
+                "mac and cheese: £4.00", menu.toString());
     }
 }

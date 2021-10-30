@@ -1,6 +1,7 @@
 package takeaway.app;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class FoodOrder {
@@ -24,6 +25,22 @@ public class FoodOrder {
 
     public Map<String, Integer> getBasket() {
         return this.basket;
+    }
+
+    public String printBasket() {
+        StringBuilder builder = new StringBuilder();
+        Iterator<Map.Entry<String, Integer>> iterator = this.basket.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<String, Integer> entry = iterator.next();
+            builder.append("item: ");
+            builder.append(entry.getKey());
+            builder.append(", quantity: ");
+            builder.append(entry.getValue());
+            if (iterator.hasNext()) {
+                builder.append(";\n");
+            }
+        }
+        return builder.toString();
     }
 
     public Double getTotal() {
