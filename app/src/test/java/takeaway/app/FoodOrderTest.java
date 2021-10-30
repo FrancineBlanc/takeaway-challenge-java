@@ -39,7 +39,7 @@ public class FoodOrderTest {
     @Test
     public void testMenuItemsAreAddedToABasket() {
         assertEquals(foodOrder.getBasket().size(), 2);
-        assertEquals(foodOrder.getBasket().get("test1"), Double.valueOf(2.00));
+        assertEquals(foodOrder.getBasket().get("test1"), Integer.valueOf(1));
     }
 
     @Test
